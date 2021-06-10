@@ -13,6 +13,8 @@ gem "decidim-conferences", DECIDIM_VERSION
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
 
+gem "decidim-decidim_awesome", "~> 0.6.7"
+gem "decidim-navigation_maps", "~> 1.1.1"
 # Decidim::DirectVerifications - https://github.com/Platoniq/decidim-verifications-direct_verifications
 gem "decidim-direct_verifications"
 

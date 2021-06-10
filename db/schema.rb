@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_103248) do
+ActiveRecord::Schema.define(version: 2021_06_10_144314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -262,6 +262,36 @@ ActiveRecord::Schema.define(version: 2021_06_10_103248) do
     t.index ["decidim_user_id", "name"], name: "index_decidim_authorizations_on_decidim_user_id_and_name", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_authorizations_on_decidim_user_id"
     t.index ["unique_id"], name: "index_decidim_authorizations_on_unique_id"
+  end
+
+  create_table "decidim_awesome_config", force: :cascade do |t|
+    t.jsonb "var"
+    t.jsonb "value"
+    t.integer "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_awesome_on_decidim_organization_id"
+    t.index ["var", "decidim_organization_id"], name: "index_decidim_awesome_organization_var", unique: true
+  end
+
+  create_table "decidim_awesome_config_constraints", force: :cascade do |t|
+    t.jsonb "settings"
+    t.bigint "decidim_awesome_config_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_awesome_config_id"], name: "decidim_awesome_config_constraints_config"
+    t.index ["settings", "decidim_awesome_config_id"], name: "index_decidim_awesome_settings_awesome_config", unique: true
+  end
+
+  create_table "decidim_awesome_editor_images", force: :cascade do |t|
+    t.string "image"
+    t.string "path"
+    t.bigint "decidim_author_id", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_author_id"], name: "decidim_awesome_editor_images_author"
+    t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
   end
 
   create_table "decidim_blogs_posts", id: :serial, force: :cascade do |t|
@@ -1119,6 +1149,32 @@ ActiveRecord::Schema.define(version: 2021_06_10_103248) do
     t.index ["report_count"], name: "decidim_moderations_report_count"
   end
 
+  create_table "decidim_navigation_maps_blueprint_areas", force: :cascade do |t|
+    t.jsonb "area"
+    t.bigint "decidim_navigation_maps_blueprint_id", null: false
+    t.jsonb "title", default: {}
+    t.jsonb "description", default: {}
+    t.string "area_type"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "link_type"
+    t.string "area_id"
+    t.string "color"
+    t.index ["decidim_navigation_maps_blueprint_id"], name: "decidim_navigation_maps_constraint_blueprint_id"
+  end
+
+  create_table "decidim_navigation_maps_blueprints", force: :cascade do |t|
+    t.string "image"
+    t.bigint "decidim_organization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "title", default: {}
+    t.jsonb "description", default: {}
+    t.integer "height", default: 475, null: false
+    t.index ["decidim_organization_id"], name: "decidim_navigation_maps_constraint_organization"
+  end
+
   create_table "decidim_newsletters", id: :serial, force: :cascade do |t|
     t.jsonb "subject"
     t.integer "organization_id"
@@ -1788,6 +1844,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_103248) do
   add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_awesome_config_constraints", "decidim_awesome_config"
+  add_foreign_key "decidim_awesome_editor_images", "decidim_organizations"
+  add_foreign_key "decidim_awesome_editor_images", "decidim_users", column: "decidim_author_id"
   add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
@@ -1797,6 +1856,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_103248) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
   add_foreign_key "decidim_identities", "decidim_organizations"
+  add_foreign_key "decidim_navigation_maps_blueprint_areas", "decidim_navigation_maps_blueprints"
+  add_foreign_key "decidim_navigation_maps_blueprints", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
