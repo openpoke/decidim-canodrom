@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "Decidim Barcelona Organizations"
+  config.application_name = "Decidim del Canòdrom - Ateneu d'innovació democratica de Barcelona"
   config.mailer_sender = Rails.application.secrets.email
   config.authorization_handlers = []
 
