@@ -1,5 +1,4 @@
 Rails.application.configure do
-  config.active_job.queue_adapter = :sidekiq
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Json.new
   config.lograge.custom_options = lambda do |event|
@@ -75,7 +74,7 @@ Rails.application.configure do
   config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  config.active_job.queue_adapter     = :sidekiq
+  config.active_job.queue_adapter = :delayed_job
   # config.active_job.queue_name_prefix = "decidim-canodrom_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
@@ -102,18 +101,6 @@ Rails.application.configure do
     :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
     :openssl_verify_mode => 'none'
   }
-
-  if Rails.application.secrets.sendgrid
-    config.action_mailer.default_options = {
-      "X-SMTPAPI" => {
-        filters:  {
-          clicktrack: { settings: { enable: 0 } },
-          opentrack:  { settings: { enable: 0 } }
-        }
-      }.to_json
-    }
-  end
-
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
