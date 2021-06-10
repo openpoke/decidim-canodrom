@@ -22,16 +22,13 @@ gem "uglifier"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem 'rails-observers'
-
+gem "delayed_job_web"
 gem "faker", "~> 1.8.4"
-gem "sidekiq"
 
 group :development, :test do
   gem "byebug", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rspec-rails"
 end
 
 group :development do
@@ -40,15 +37,19 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console"
+
+  gem "capistrano", "~> 3.15"
+  gem "capistrano-bundler", "~> 2.0", require: false
+  gem "capistrano-figaro-yml", "~> 1.0.2", require: false
+  gem "capistrano-passenger", "~> 0.2.0", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-rails-console", require: false
+  gem "capistrano-rbenv", "~> 2.2", require: false
+  gem "passenger", "~> 6.0"
 end
 
 group :production do
-  gem 'fog-aws'
-  gem 'dalli'
-  gem 'sendgrid-ruby'
-  gem 'newrelic_rpm'
-  gem 'lograge'
-  gem 'sentry-raven'
-  gem 'rails_autoscale_agent'
-  gem 'platform-api'
+  gem "daemons", "~> 1.3"
+  gem "delayed_job_active_record", "~> 4.1"
+  gem "figaro", "~> 1.2"
 end

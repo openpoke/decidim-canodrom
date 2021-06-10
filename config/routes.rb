@@ -1,7 +1,7 @@
-require "sidekiq/web"
+
 Rails.application.routes.draw do
-  authenticate :admin do
-    mount Sidekiq::Web => '/sidekiq'
+  authenticated :user, ->(user) { user.admin? } do
+    mount DelayedJobWeb, at: "/delayed_job"
   end
 
   if Rails.env.development?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_125954) do
+ActiveRecord::Schema.define(version: 2021_06_10_103248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -280,7 +280,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_125954) do
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
   end
 
-  create_table "decidim_budgets_budgets", id: :serial, force: :cascade do |t|
+  create_table "decidim_budgets_budgets", id: :integer, default: nil, force: :cascade do |t|
     t.jsonb "title"
     t.integer "weight", default: 0, null: false
     t.jsonb "description"
@@ -1704,6 +1704,21 @@ ActiveRecord::Schema.define(version: 2021_04_29_125954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
