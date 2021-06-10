@@ -47,10 +47,6 @@ Decidim.configure do |config|
   #
   config.enable_html_header_snippets = true
 
-  if ENV["HEROKU_APP_NAME"].present?
-    config.base_uploads_path = ENV["HEROKU_APP_NAME"] + "/"
-  end
-
   if Rails.application.secrets.etherpad[:server].present?
     config.etherpad = Rails.application.secrets.etherpad
   end
