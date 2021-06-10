@@ -24,6 +24,7 @@ gem "wkhtmltopdf-binary"
 
 gem "delayed_job_web"
 gem "faker", "~> 1.8.4"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platform: :mri
