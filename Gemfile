@@ -17,6 +17,7 @@ gem "decidim-decidim_awesome", "~> 0.6.7"
 gem "decidim-navigation_maps", "~> 1.1.1"
 # Decidim::DirectVerifications - https://github.com/Platoniq/decidim-verifications-direct_verifications
 gem "decidim-direct_verifications"
+gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
 gem "rails", "< 6"
 gem "puma"

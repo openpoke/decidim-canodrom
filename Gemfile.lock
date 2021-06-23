@@ -7,8 +7,20 @@ GIT
       decidim-core (>= 0.18.0)
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-time_tracker
+  revision: a49b42e0d5aeee1378a9b57b25de47b146b17d9a
+  specs:
+    decidim-time_tracker (0.3)
+      decidim-accountability (>= 0.23.1)
+      decidim-admin (>= 0.23.1)
+      decidim-core (>= 0.23.1)
+      decidim-forms (>= 0.23.1)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
+
+GIT
   remote: https://github.com/decidim/decidim.git
-  revision: dd26de389f5a08105957e9286ff97e7125b83393
+  revision: 81a3ea3531bcd7f3fb518451aa9a2139e7c37580
   branch: release/0.23-stable
   specs:
     decidim (0.23.6)
@@ -413,8 +425,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
@@ -426,7 +438,7 @@ GEM
     docile (1.4.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    doorkeeper (5.5.1)
+    doorkeeper (5.5.2)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     equalizer (0.0.11)
@@ -464,7 +476,7 @@ GEM
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.1)
+    ffi (1.15.3)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     file_validators (2.3.0)
@@ -703,7 +715,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
-    redis (4.2.5)
+    redis (4.3.1)
     regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
@@ -861,7 +873,7 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket-driver (0.7.4)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     whenever (1.0.0)
@@ -898,6 +910,7 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-navigation_maps (~> 1.1.1)
   decidim-term_customizer!
+  decidim-time_tracker!
   delayed_job_active_record (~> 4.1)
   delayed_job_web
   faker (~> 1.8.4)
