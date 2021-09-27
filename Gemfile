@@ -4,29 +4,28 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable" }
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "release/0.24-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer"
 
-gem "decidim-decidim_awesome", "~> 0.6.7"
-gem "decidim-navigation_maps", "~> 1.1.1"
-# Decidim::DirectVerifications - https://github.com/Platoniq/decidim-verifications-direct_verifications
+gem "decidim-decidim_awesome", "~> 0.7.0"
 gem "decidim-direct_verifications"
+gem "decidim-navigation_maps", "~> 1.2.0"
 gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
-gem "rails", "< 6"
 gem "puma"
 gem "uglifier"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
 gem "delayed_job_web"
-gem "faker", "~> 1.8.4"
+gem "faker", "~> 2.14"
+gem "rubocop-faker"
 gem "whenever", require: false
 
 group :development, :test do
@@ -36,10 +35,10 @@ group :development, :test do
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3.0"
+  gem "letter_opener_web"
   gem "listen", "~> 3.1.0"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  gem "spring-watcher-listen", "~> 2.0"
   gem "web-console"
 
   gem "capistrano", "~> 3.15"
