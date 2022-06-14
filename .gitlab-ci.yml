@@ -38,7 +38,7 @@ test-job:
     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
     - apt-get update 
       # install Chrome and it's driver
-    - apt-get install google-chrome-stable chromium-chromedriver
+    - apt-get install google-chrome-stable chromium-driver
     - ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
       # check if all is OK
     - chromedriver -v
