@@ -23,9 +23,6 @@ gem "uglifier"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
-gem "delayed_job_web"
-gem "whenever", require: false
-
 group :development, :test do
   gem "byebug", platform: :mri
   gem "faker", "~> 2.14"
@@ -42,16 +39,16 @@ group :development do
   gem "web-console"
 
   gem "capistrano", "~> 3.17", require: false
-  gem "capistrano-bundler", "~> 2.0", require: false
-  gem "capistrano-figaro-yml", "~> 1.0.2", require: false
-  gem "capistrano-passenger", "~> 0.2.0", require: false
-  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-bundler", require: false
+  gem "capistrano-passenger", require: false
+  gem "capistrano-rails", require: false
   gem "capistrano-rails-console", require: false
-  gem "capistrano-rbenv", "~> 2.2", require: false
+  gem "capistrano-rbenv", require: false
+  gem "capistrano-sidekiq", require: false
 end
 
 group :production do
-  gem "daemons", "~> 1.3"
-  gem "delayed_job_active_record", "~> 4.1"
+  gem "sidekiq", "~> 6.4.1" # 6.5 not compatible with sidekiq-cron yet
+  gem "sidekiq-cron"
   gem "figaro", "~> 1.2"
 end
