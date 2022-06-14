@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.26.1"
+DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -13,7 +13,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
 
-gem "decidim-decidim_awesome", "~> 0.8.1"
+gem "decidim-decidim_awesome"
 gem "decidim-direct_verifications"
 gem "decidim-navigation_maps", "~> 1.3.0"
 # gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
