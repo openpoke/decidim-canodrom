@@ -28,6 +28,7 @@ test-job:
       - vendor
       - public/packs-test
   before_script:
+    - curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
     - apt-get update -qq && apt-get install -y -qq nodejs
     # Install yarn as outlined in (https://yarnpkg.com/lang/en/docs/install/#alternatives-stable)
     - curl -o- -L https://yarnpkg.com/install.sh | bash
