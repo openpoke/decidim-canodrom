@@ -1,4 +1,4 @@
-image: microstudi/decidim-test
+image: microstudi/decidim-test:0.1
 
 services:
   - postgres:12.0
