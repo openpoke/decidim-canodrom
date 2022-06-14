@@ -1,4 +1,4 @@
-image: ruby:2.7.6
+image: microstudi/decidim-test
 
 services:
   - postgres:12.0
@@ -26,19 +26,6 @@ test-job:
       - vendor
       - public/packs-test
   before_script:
-    - curl -sL https://deb.nodesource.com/setup_16.x | bash -
-    - apt-get update -qq && apt-get install -y -qq nodejs
-    # Install yarn as outlined in (https://yarnpkg.com/lang/en/docs/install/#alternatives-stable)
-    - curl -o- -L https://yarnpkg.com/install.sh | bash
-    # Make available in the current terminal
-    - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-      # add Google public key
-    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-      # add Google Chrome stable repository to sources
-    - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-    - apt-get update 
-      # install Chrome and it's driver
-    - apt-get install google-chrome-stable chromium-driver -y
       # check if all is OK
     - chromedriver -v
     - node -v
