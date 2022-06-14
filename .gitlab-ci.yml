@@ -2,7 +2,6 @@ image: ruby:2.7.6
 
 services:
   - postgres:12.0
-  - selenium/standalone-chrome:latest
 
 stages:
   - test
@@ -17,7 +16,6 @@ variables:
   RAILS_ENV: test
   DISABLE_SPRING: 1
   BUNDLE_PATH: vendor/bundle
-  SELENIUM_URL: http://selenium__standalone-chrome:4444/wd/hub
 
 test-job:
   stage: test
@@ -34,6 +32,16 @@ test-job:
     - curl -o- -L https://yarnpkg.com/install.sh | bash
     # Make available in the current terminal
     - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+      # add Google public key
+    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+      # add Google Chrome stable repository to sources
+    - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+    - apt-get update 
+      # install Chrome and it's driver
+    - apt-get install google-chrome-stable chromium-chromedriver
+    - ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+      # check if all is OK
+    - chromedriver -v
     - node -v
     - yarn -v
     - ruby -v
