@@ -9,9 +9,9 @@ test-job:
     variables:
         POSTGRES_USER: postgresql
         POSTGRES_PASSWORD: postgresql
-        DB_USERNAME: postgresql
-        DB_PASSWORD: postgresql
-        DB_HOST: postgres
+        DATABASE_USERNAME: postgres
+        DATABASE_PASSWORD: postgres
+        DATABASE_HOST: postgres
         RAILS_ENV: test
         DISABLE_SPRING: 1
         BUNDLE_PATH: vendor/bundle
