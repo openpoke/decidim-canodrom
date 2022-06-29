@@ -47,10 +47,11 @@ Decidim.configure do |config|
   #
   config.enable_html_header_snippets = true
 
-  if Rails.application.secrets.etherpad[:server].present?
-    config.etherpad = Rails.application.secrets.etherpad
-  end
+  config.etherpad = Rails.application.secrets.etherpad if Rails.application.secrets.etherpad[:server].present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
