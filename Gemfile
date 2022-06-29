@@ -10,6 +10,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
 
@@ -48,7 +49,7 @@ group :development do
 end
 
 group :production do
+  gem "figaro", "~> 1.2"
   gem "sidekiq", "~> 6.4.1" # 6.5 not compatible with sidekiq-cron yet
   gem "sidekiq-cron"
-  gem "figaro", "~> 1.2"
 end
