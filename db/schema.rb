@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_14_144328) do
+ActiveRecord::Schema.define(version: 2022_06_28_111737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
-  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
@@ -334,7 +333,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_144328) do
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
   end
 
-  create_table "decidim_budgets_budgets", id: :integer, default: nil, force: :cascade do |t|
+  create_table "decidim_budgets_budgets", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.integer "weight", default: 0, null: false
     t.jsonb "description"
@@ -394,7 +393,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_144328) do
 
   create_table "decidim_categorizations", force: :cascade do |t|
     t.bigint "decidim_category_id", null: false
-    t.string "categorizable_type"
+    t.string "categorizable_type", null: false
     t.bigint "categorizable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1321,6 +1320,46 @@ ActiveRecord::Schema.define(version: 2022_06_14_144328) do
     t.index ["decidim_user_id"], name: "index_decidim_notifications_on_decidim_user_id"
   end
 
+  create_table "decidim_notify_authors", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.bigint "decidim_component_id"
+    t.integer "code", default: 0, null: false
+    t.string "full_name"
+    t.string "avatar"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.index ["code"], name: "index_decidim_notify_authors_on_code"
+    t.index ["decidim_component_id"], name: "index_decidim_notify_authors_on_decidim_component_id"
+    t.index ["decidim_user_id"], name: "index_decidim_notify_authors_on_decidim_user_id"
+  end
+
+  create_table "decidim_notify_chapters", force: :cascade do |t|
+    t.string "title", null: false
+    t.boolean "active", default: false, null: false
+    t.bigint "decidim_component_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "index_decidim_notify_chapters_on_decidim_component_id"
+  end
+
+  create_table "decidim_notify_notes", force: :cascade do |t|
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "decidim_notify_author_id"
+    t.bigint "decidim_component_id"
+    t.bigint "decidim_creator_id"
+    t.bigint "decidim_author_id"
+    t.bigint "decidim_notify_chapter_id"
+    t.index ["decidim_author_id"], name: "index_decidim_notify_notes_on_decidim_author_id"
+    t.index ["decidim_component_id"], name: "index_decidim_notify_notes_on_decidim_component_id"
+    t.index ["decidim_creator_id"], name: "index_decidim_notify_notes_on_decidim_creator_id"
+    t.index ["decidim_notify_author_id"], name: "index_decidim_notify_notes_on_decidim_notify_author_id"
+    t.index ["decidim_notify_chapter_id"], name: "index_decidim_notify_notes_on_decidim_notify_chapter_id"
+  end
+
   create_table "decidim_organizations", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.string "host", null: false
@@ -2132,6 +2171,8 @@ ActiveRecord::Schema.define(version: 2022_06_14_144328) do
   add_foreign_key "decidim_navigation_maps_blueprints", "decidim_content_blocks"
   add_foreign_key "decidim_navigation_maps_blueprints", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
+  add_foreign_key "decidim_notify_notes", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_notify_notes", "decidim_users", column: "decidim_creator_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_scope_types"
