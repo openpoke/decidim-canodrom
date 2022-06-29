@@ -1,0 +1,52 @@
+image: microstudi/decidim-test:0.9
+
+services:
+  - postgres:12.0
+
+stages:
+  - test
+  - precompile
+
+variables:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  POSTGRES_HOST: postgres
+  RAILS_ENV: test
+  BUNDLE_PATH: vendor/bundle
+
+test-job:
+  stage: test
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
+      - vendor
+      - public/packs-test
+  before_script:
+      # check if all is OK
+    - chromedriver -v
+    - node -v
+    - yarn -v
+    - ruby -v
+    - which ruby
+    - gem install bundler -v 2.3.13
+    - bundle install --jobs $(nproc)  "${FLAGS[@]}" --path vendor
+    - yarn install
+    # Database setup
+    - bundle exec rails db:create db:schema:load --trace
+  script:
+    - bundle exec rspec spec
+
+precompile-job:
+  stage: precompile
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
+      - vendor
+      - public/packs-test
+  script:
+    - bundle exec rake assets:precompile
+

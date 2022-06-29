@@ -13,13 +13,21 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
 /node_modules
 /yarn-error.log
 
 .byebug_history
 
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
 # Ignore public uploads
-public/uploads
+/public/assets
+/public/uploads
 
 # Ignore .rbenv-vars
 .rbenv-vars
@@ -37,3 +45,12 @@ config/deploy.rb
 
 decidim_dummy_app
 .vscode
+
+/public/packs
+/public/packs-test
+/public/decidim-packs
+/public/decidim-packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
