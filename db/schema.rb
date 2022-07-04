@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_111737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
+  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
 
@@ -333,7 +334,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_111737) do
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
   end
 
-  create_table "decidim_budgets_budgets", id: :serial, force: :cascade do |t|
+  create_table "decidim_budgets_budgets", id: :integer, default: nil, force: :cascade do |t|
     t.jsonb "title"
     t.integer "weight", default: 0, null: false
     t.jsonb "description"
@@ -393,7 +394,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_111737) do
 
   create_table "decidim_categorizations", force: :cascade do |t|
     t.bigint "decidim_category_id", null: false
-    t.string "categorizable_type", null: false
+    t.string "categorizable_type"
     t.bigint "categorizable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
