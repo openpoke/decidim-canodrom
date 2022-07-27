@@ -15,9 +15,9 @@ module ApplicationMailerDelivery
 	    return unless self.class.name == "Decidim::NewsletterMailer"
 
       mail.delivery_method.settings.merge!(
-        address: broadcast_address,
-        user_name: broadcast_username,
-        password: broadcast_password
+        address: Rails.application.secrets.broadcast_address,
+        user_name: Rails.application.secrets.broadcast_username,
+        password: Rails.application.secrets.broadcast_password
       ) { |_k, o, v| v.presence || o }.compact_blank!
 	  end
   end
