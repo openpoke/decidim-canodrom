@@ -18,7 +18,7 @@ module ApplicationMailerDelivery
         address: Rails.application.secrets.broadcast_address,
         user_name: Rails.application.secrets.broadcast_username,
         password: Rails.application.secrets.broadcast_password
-      ) { |_k, o, v| v.presence || o }.compact_blank!
+      )
 	  end
   end
 end
