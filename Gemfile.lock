@@ -6,6 +6,15 @@ GIT
       decidim-admin (~> 0.26.0)
       decidim-core (~> 0.26.0)
 
+GIT
+  remote: https://github.com/openpoke/decidim-module-calendar
+  revision: cc971dffa3db2b0e450ae6edcf88a8398933b800
+  tag: update-26
+  specs:
+    decidim-calendar (0.26.0)
+      decidim-admin (>= 0.25.0, < 0.27)
+      decidim-core (>= 0.25.0, < 0.27)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -844,6 +853,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-sidekiq
   decidim (~> 0.26.2)
+  decidim-calendar!
   decidim-conferences (~> 0.26.2)
   decidim-consultations (~> 0.26.2)
   decidim-decidim_awesome
