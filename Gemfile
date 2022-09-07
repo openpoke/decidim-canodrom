@@ -19,6 +19,7 @@ gem "decidim-direct_verifications"
 gem "decidim-navigation_maps", "~> 1.3.0"
 # gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
+gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
 gem "puma"
 gem "uglifier"
 gem "wicked_pdf"
