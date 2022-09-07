@@ -12,7 +12,7 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "develop"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
 
 gem "decidim-decidim_awesome"
 gem "decidim-direct_verifications"
@@ -34,9 +34,9 @@ end
 
 group :development do
   gem "letter_opener_web"
-  gem "listen", "~> 3.1.0"
+  gem "listen"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0"
+  gem "spring-watcher-listen"
   gem "web-console"
 
   gem "capistrano", "~> 3.17", require: false
@@ -50,6 +50,6 @@ end
 
 group :production do
   gem "figaro", "~> 1.2"
-  gem "sidekiq", "~> 6.4.1" # 6.5 not compatible with sidekiq-cron yet
+  gem "sidekiq"
   gem "sidekiq-cron"
 end
