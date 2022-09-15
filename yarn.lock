@@ -1051,14 +1051,12 @@
   "resolved" "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
   "version" "1.4.0"
 
-"@decidim/browserslist-config@^0.26.2":
-  "integrity" "sha512-Wpx7rkgf/g444Rk+AXOgJVJ9A82AhtGlVQTDSWVi6dqgPh5pWPFtJd5BT5e/CenxJmjKa8QfMCeFTNyI6fBvrg=="
-  "resolved" "https://registry.npmjs.org/@decidim/browserslist-config/-/browserslist-config-0.26.2.tgz"
+"@decidim/browserslist-config@file:packages/browserslist-config":
+  "resolved" "file:packages/browserslist-config"
   "version" "0.26.2"
 
-"@decidim/core@^0.26.2":
-  "integrity" "sha512-rBoT6YLlCK0gjj6xPeRLjhNXBM5FWTmhvTBRRXVM13JyzVtyruuvtRrc0JIvLtx52Lvb+lMvlmN8GoVcy4mqGA=="
-  "resolved" "https://registry.npmjs.org/@decidim/core/-/core-0.26.2.tgz"
+"@decidim/core@file:packages/core":
+  "resolved" "file:packages/core"
   "version" "0.26.2"
   dependencies:
     "@joeattardi/emoji-button" "^4.6.0"
@@ -1111,30 +1109,26 @@
     "webpack" "^5.11.0"
     "webpack-cli" "^4.2.0"
 
-"@decidim/dev@^0.26.2":
-  "integrity" "sha512-9IQ5bZ+Q7zJZADXaS11h5ed5RUzkC6levj7SuYizw6a+i9MmYmL6TqQsGr7TSuCatw8aVZf9CpvoOnDqanhwhg=="
-  "resolved" "https://registry.npmjs.org/@decidim/dev/-/dev-0.26.2.tgz"
+"@decidim/dev@file:packages/dev":
+  "resolved" "file:packages/dev"
   "version" "0.26.2"
   dependencies:
     "axe-core" "^4.1.4"
 
-"@decidim/elections@^0.26.2":
-  "integrity" "sha512-qmGb2vCUGU0pfoHwOpsEzACRy70cKEX93I2P/vm8FeD1bwvZM9crfOSlsiqfEVMTOGcXqgn2A2ojeOx3xGonbA=="
-  "resolved" "https://registry.npmjs.org/@decidim/elections/-/elections-0.26.2.tgz"
+"@decidim/elections@file:packages/elections":
+  "resolved" "file:packages/elections"
   "version" "0.26.2"
   dependencies:
     "@decidim/decidim-bulletin_board" "0.22.3"
     "@decidim/voting_schemes-dummy" "0.22.3"
     "@decidim/voting_schemes-electionguard" "0.22.3"
 
-"@decidim/eslint-config@^0.26.2":
-  "integrity" "sha512-5UyXxlNcsmJ7TP9/hY29pjvZlvtNhjh01ATjbekpTR1ha8QFss7z4IDY6L1eDc2zfwIoxllaPnrhZi0D+SyUhA=="
-  "resolved" "https://registry.npmjs.org/@decidim/eslint-config/-/eslint-config-0.26.2.tgz"
+"@decidim/eslint-config@file:packages/eslint-config":
+  "resolved" "file:packages/eslint-config"
   "version" "0.26.2"
 
-"@decidim/stylelint-config@^0.26.2":
-  "integrity" "sha512-J5JYlnidSk1gJVKtWmLfp2NOF3wd3S+kK+57YvWybhaD6pvV56DPk1oO+nEs/NKELR0LaV1PMBxZu2eFppn5bw=="
-  "resolved" "https://registry.npmjs.org/@decidim/stylelint-config/-/stylelint-config-0.26.2.tgz"
+"@decidim/stylelint-config@file:packages/stylelint-config":
+  "resolved" "file:packages/stylelint-config"
   "version" "0.26.2"
 
 "@decidim/voting_schemes-dummy@0.22.3":
@@ -1147,9 +1141,8 @@
   "resolved" "https://registry.npmjs.org/@decidim/voting_schemes-electionguard/-/voting_schemes-electionguard-0.22.3.tgz"
   "version" "0.22.3"
 
-"@decidim/webpacker@^0.26.2":
-  "integrity" "sha512-tDFr6LMFbBnmvcjl4Z1c0kuFcE52ZRI3HhmAiMQjq29nnPTNwG2xhaSr9kPEgk0wzR9PUsxXYNoM7t+o3VIdgQ=="
-  "resolved" "https://registry.npmjs.org/@decidim/webpacker/-/webpacker-0.26.2.tgz"
+"@decidim/webpacker@file:packages/webpacker":
+  "resolved" "file:packages/webpacker"
   "version" "0.26.2"
   dependencies:
     "@babel/core" "^7.13.13"
