@@ -4,7 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.26.2"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.26-stable" }.freeze
+#em DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
