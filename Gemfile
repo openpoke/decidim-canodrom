@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.26-stable" }.freeze
-#em DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -13,16 +12,15 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer"
+gem "decidim-term_customizer", git: "https://github.com/openpoke/decidim-module-term_customizer"
 
-gem "decidim-decidim_awesome"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications"
 gem "decidim-navigation_maps", "~> 1.3.0"
 # gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
-gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
+gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar"
 gem "puma"
-gem "uglifier"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
 
@@ -52,6 +50,6 @@ end
 
 group :production do
   gem "figaro", "~> 1.2"
-  gem "sidekiq"
+  gem "sidekiq", "<7"
   gem "sidekiq-cron"
 end
