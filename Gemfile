@@ -4,7 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.26.2"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.26-stable" }.freeze
+#em DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -19,6 +20,7 @@ gem "decidim-direct_verifications"
 gem "decidim-navigation_maps", "~> 1.3.0"
 # gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
+gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
 gem "puma"
 gem "uglifier"
 gem "wicked_pdf"
