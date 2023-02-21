@@ -334,7 +334,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_135937) do
     t.index ["decidim_user_group_id"], name: "index_decidim_blogs_posts_on_decidim_user_group_id"
   end
 
-  create_table "decidim_budgets_budgets", id: :integer, default: nil, force: :cascade do |t|
+  create_table "decidim_budgets_budgets", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.integer "weight", default: 0, null: false
     t.jsonb "description"
