@@ -20,6 +20,8 @@ gem "decidim-navigation_maps", "~> 1.3.0"
 # gem "decidim-time_tracker", git: "https://github.com/Platoniq/decidim-module-time_tracker"
 
 gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar"
+gem "decidim-newsletter_agenda", git: "https://github.com/openpoke/decidim-module-newsletter_agenda"
+
 gem "puma"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
