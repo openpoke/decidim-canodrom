@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: ae55db07507d223e4619c71dad58dfa1bb3e527d
+  revision: a5fb3423cb09379e2cbf40e001e44325834b31c2
   specs:
     decidim-decidim_awesome (0.9.1)
       decidim-admin (>= 0.26.0, < 0.28)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: a75db34032f9028bc588075d976747b78eb24005
+  revision: 3398945f06de924c20591ac0e4c5b272d34956b9
   tag: release/0.26-stable
   specs:
     decidim (0.26.5)
@@ -210,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda
-  revision: 1d8494801e8e9638244f92271263dae9378e1c57
+  revision: 38a02346d82b2d2bff5a881af716be070f712f4b
   specs:
     decidim-newsletter_agenda (1.0.0)
       date_range_formatter
@@ -382,7 +382,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     connection_pool (2.3.0)
     crack (0.4.5)
       rexml
@@ -429,7 +429,7 @@ GEM
       nokogiri (>= 1.13.2, < 1.14.0)
       rubyzip (~> 2.3.0)
     docile (1.4.0)
-    doorkeeper (5.6.4)
+    doorkeeper (5.6.5)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dumb_delegator (1.0.0)
@@ -564,7 +564,7 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    minitest (5.17.0)
+    minitest (5.18.0)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
@@ -649,7 +649,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -757,7 +757,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.26.0)
+    rubocop-ast (1.27.0)
       parser (>= 3.2.1.0)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
@@ -768,7 +768,7 @@ GEM
       rubocop (>= 0.90.0, < 2.0)
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
-    ruby-progressbar (1.11.0)
+    ruby-progressbar (1.13.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
