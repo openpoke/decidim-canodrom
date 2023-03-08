@@ -210,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda
-  revision: 38a02346d82b2d2bff5a881af716be070f712f4b
+  revision: 5c2497ea55f9d2375963f82daa42eaad6da0bfdb
   specs:
     decidim-newsletter_agenda (1.0.0)
       date_range_formatter
@@ -369,7 +369,7 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (18.1.0)
+    chef-utils (18.1.29)
       concurrent-ruby
     childprocess (3.0.0)
     coercible (1.0.0)
@@ -630,7 +630,7 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.22.1)
-    parser (3.2.1.0)
+    parser (3.2.1.1)
       ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.6)
