@@ -210,7 +210,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 5bdc44bb8fa5707d896c21ac26e96e8901a46d8b
+  revision: 833844a055497de34c3edac658175a899027cc79
   branch: style-changes-afeter-tests
   specs:
     decidim-newsletter_agenda (1.0.0)
