@@ -28,6 +28,8 @@
 # Ignore public uploads
 /public/assets
 /public/uploads
+/public/sw.js
+/public/sw.js.map
 
 # Ignore .rbenv-vars
 .rbenv-vars
