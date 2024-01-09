@@ -4,23 +4,23 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "decidim/decidim", ref: "791c58ce8abb66a2fc04168c9b78e22fe334230c" }.freeze
+DECIDIM_VERSION = "0.27.5"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-notify"
+#gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer"
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications"
-gem "decidim-navigation_maps", "~> 1.3.0"
+gem "decidim-navigation_maps", github: "platoniq/decidim-module-navigation_maps"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
 gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
-gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "style-changes-afeter-tests"
+gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda"
 
 gem "puma"
 gem "wicked_pdf"
