@@ -1,47 +1,106 @@
 version: '3'
 services:
+  traefik:
+    image: "traefik:v2.10"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      #- "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=postmaster@comunitat.canodrom.barcelona"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
   app:
     build: .
     volumes:
-      - ./tmp/pids:/app/tmp/pids
-    # - ./entrypoint.sh:/app/entrypoint.sh
-    # - ./db/seeds.rb:/app/db/seeds.rb
-    #   - .:/app
-    #   - bundle:/usr/local/bundle
-    #   - node_modules:/app/node_modules
+      - /home/dockerexec/storage:/app/storage
+    restart: ${RESTART_POLICY:-always}
     environment:
-      - DATABASE_URL=postgres://postgres:decidim@db/decidim
-      - SECRET_KEY_BASE=my-key-secret
-      - DECIDIM_FORCE_SSL=false
-      - QUEUE_ADAPTER=sidekiq
-      - REDIS_URL=redis://redis:6379/1
-    ports:
-      - 3000:3000
+      - RUN_RAILS=true
+      - RUN_SIDEKIQ=false
+      - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-f32a6ee88fe7cbc9bfd8f6dfeda5casdfda44k78e16dd40ec199109acde7fdda524d495a013d20e2b952dbafb61234136278ea6d67c2c134779bd445da9671e}
+      - DECIDIM_FORCE_SSL=${DECIDIM_FORCE_SSL:-false}
+      - QUEUE_ADAPTER=${QUEUE_ADAPTER:-sidekiq}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
+      - WEB_CONCURRENCY=${WEB_CONCURRENCY:-2}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-false}
+      - DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS=${DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS:-0}
+      - CHANGE_ACTIVE_STEP=${CHANGE_ACTIVE_STEP:-enabled}
+      - SEND_REMINDERS=${SEND_REMINDERS:-enabled}
+      - WEEKLY_NOTIFICATIONS_DIGEST=${WEEKLY_NOTIFICATIONS_DIGEST:-enabled}
+      - DAILY_NOTIFICATIONS_DIGEST=${DAILY_NOTIFICATIONS_DIGEST:-enabled}
+      - SMTP_STARTTLS_AUTO=${SMTP_STARTTLS_AUTO:-true}
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_ADDRESS
+      - SMTP_DOMAIN=${SMTP_DOMAIN:-canodrom.barcelona}
+      - SMTP_PORT=${SMTP_PORT:-25}
+      - DECIDIM_MAILER_SENDER
+      - MAPS_API_KEY
+      - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
+      - RACK_ATTACK_SECRET
+      - CENSUS_URL
+      - DECIDIM_HOST=${DECIDIM_HOST:-comunitat.canodrom.barcelona}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`$DECIDIM_HOST`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
     depends_on:
       - db
       - redis
   sidekiq:
     build: .
     volumes:
-    # - ./entrypoint.sh:/app/entrypoint.sh
-    #   - .:/app
-    #   - bundle:/usr/local/bundle
-    #   - node_modules:/app/node_modules
+      - /home/dockerexec/storage:/app/storage
+    restart: ${RESTART_POLICY:-always}
     environment:
-      - DATABASE_URL=postgres://postgres:decidim@db/decidim
-      - SECRET_KEY_BASE=my-key-secret
-      - DECIDIM_FORCE_SSL=false
-      - QUEUE_ADAPTER=sidekiq
-      - REDIS_URL=redis://redis:6379/1
+      - DATABASE_URL=${DATABASE_URL:-postgres://postgres:decidim@db/decidim}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-f32a6ee88fe7cbc9bfd8f6dfeda5casdfda44k78e16dd40ec199109acde7fdda524d495a013d20e2b952dbafb61234136278ea6d67c2c134779bd445da9671e}
+      - DECIDIM_FORCE_SSL=${DECIDIM_FORCE_SSL:-false}
+      - QUEUE_ADAPTER=${QUEUE_ADAPTER:-sidekiq}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
+      - RUN_RAILS=false
       - RUN_SIDEKIQ=true
+      - SIDEKIQ_CONCURRENCY=${SIDEKIQ_CONCURRENCY:-5}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=${DECIDIM_ENABLE_HTML_HEADER_SNIPPETS:-false}
+      - DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS=${DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS:-0}
+      - CHANGE_ACTIVE_STEP=${CHANGE_ACTIVE_STEP:-enabled}
+      - SEND_REMINDERS=${SEND_REMINDERS:-enabled}
+      - WEEKLY_NOTIFICATIONS_DIGEST=${WEEKLY_NOTIFICATIONS_DIGEST:-enabled}
+      - DAILY_NOTIFICATIONS_DIGEST=${DAILY_NOTIFICATIONS_DIGEST:-enabled}
+      - SMTP_STARTTLS_AUTO=${SMTP_STARTTLS_AUTO:-true}
+      - DECIDIM_MAILER_SENDER
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+      - SMTP_ADDRESS
+      - SMTP_DOMAIN=${SMTP_DOMAIN:-canodrom.barcelona}
+      - SMTP_PORT=${SMTP_PORT:-25}
+      - MAPS_API_KEY
+      - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
+      - RACK_ATTACK_SECRET
+      - CENSUS_URL
     depends_on:
+      - db
       - redis
   db:
-    image: postgres:13
-    ports:
-      - "54321:5432"
+    image: postgres:14
     environment:
-      - POSTGRES_PASSWORD=decidim
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-decidim}
+      - POSTGRES_DB=${POSTGRES_DB:-decidim}
     volumes:
       - pg_data:/var/lib/postgresql/data
   redis:
@@ -51,5 +110,5 @@ services:
 volumes:
   pg_data:
   redis_data:
-  # bundle:
-  # node_modules:
+  decidim_uploads:
+  decidim_storage:
