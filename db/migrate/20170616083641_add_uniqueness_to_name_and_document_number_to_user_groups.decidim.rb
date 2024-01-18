@@ -5,7 +5,8 @@ class AddUniquenessToNameAndDocumentNumberToUserGroups < ActiveRecord::Migration
   def change
     Decidim::UserGroup.select(:document_number).group(:document_number).having("count(*) > 1").count.keys.each do |document_number|
       Decidim::UserGroup.where(document_number: document_number).each_with_index do |user_group, index|
-        next if index == 0
+        next if index.zero?
+
         user_group.update_attribute(:document_number, "#{document_number} (#{index})")
       end
     end

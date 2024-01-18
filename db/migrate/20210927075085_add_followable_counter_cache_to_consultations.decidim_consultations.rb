@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_consultations (originally 20210310120626)
 
 class AddFollowableCounterCacheToConsultations < ActiveRecord::Migration[5.2]
   def change
-    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0, index: true
+    add_column :decidim_consultations_questions, :follows_count, :integer, null: false, default: 0
+    add_index :decidim_consultations_questions, :follows_count
 
     reversible do |dir|
       dir.up do

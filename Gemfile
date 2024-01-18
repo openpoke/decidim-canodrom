@@ -10,7 +10,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-#gem "decidim-notify"
+# gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer"
 
@@ -22,10 +22,10 @@ gem "decidim-navigation_maps", github: "platoniq/decidim-module-navigation_maps"
 gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
 gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda"
 
+gem "bootsnap", "~> 1.7"
 gem "puma"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
-gem "bootsnap", "~> 1.7"
 
 group :development, :test do
   gem "byebug", platform: :mri

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_meetings (originally 20210518133236)
 
 class MergeMinutesWithClosingReportInMeetingsTable < ActiveRecord::Migration[6.0]
@@ -54,5 +55,5 @@ end
 
 def minutes_data?(meeting)
   [meeting.video_url, meeting.audio_url].any?(&:present?) ||
-    meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.any?(&:present?)
+    (meeting.minutes_description.is_a?(Hash) && meeting.minutes_description.values.any?(&:present?))
 end
