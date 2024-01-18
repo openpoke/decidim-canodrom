@@ -25,6 +25,7 @@ gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_age
 gem "puma"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
+gem "bootsnap", "~> 1.7"
 
 group :development, :test do
   gem "byebug", platform: :mri
