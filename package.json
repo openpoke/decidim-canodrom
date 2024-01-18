@@ -12,7 +12,7 @@
     "@fullcalendar/list": "^5.11.3",
     "@fullcalendar/timegrid": "^5.11.3",
     "@geoman-io/leaflet-geoman-free": "^2.15.0",
-    "@rails/webpacker": "^6.0.0-rc.6",
+    "@rails/webpacker": "^5.4.4",
     "europa": "^4.0.0",
     "form-storage": "^1.3.5",
     "formBuilder": "^3.6.1",
@@ -25,16 +25,9 @@
     "jsrender": "^1.0.9",
     "jsviews": "^1.0.13",
     "leaflet.featuregroup.subgroup": "^1.0.2",
-    "select2": "^4.1.0-rc.0",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "select2": "^4.1.0-rc.0"
   },
   "version": "0.1.0",
-  "babel": {
-    "presets": [
-      "./node_modules/@rails/webpacker/package/babel/preset.js"
-    ]
-  },
   "browserslist": [
     "extends @decidim/browserslist-config"
   ],
@@ -43,12 +36,10 @@
     "@decidim/eslint-config": "^0.27.5",
     "@decidim/stylelint-config": "^0.27.5",
     "@webpack-cli/serve": "^1.6.1",
-    "codemirror": "^5.65.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.10.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "stylelint": "^13.11.0",
-    "webpack-dev-server": "^4.9.2"
+    "stylelint": "^13.11.0"
   }
 }
