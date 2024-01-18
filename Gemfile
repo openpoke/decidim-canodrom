@@ -15,7 +15,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer"
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
-gem "decidim-direct_verifications"
+gem "decidim-direct_verifications", github: "platoniq/decidim-verifications-direct_verifications"
 gem "decidim-navigation_maps", github: "platoniq/decidim-module-navigation_maps"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
