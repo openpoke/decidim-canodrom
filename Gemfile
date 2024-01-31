@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.27.5"
+DECIDIM_VERSION = { github: "openpoke/decidim", branch: "0.27-backports" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -12,14 +12,14 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 # gem "decidim-notify"
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications", github: "platoniq/decidim-verifications-direct_verifications"
 gem "decidim-navigation_maps", github: "platoniq/decidim-module-navigation_maps"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
-gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
+gem "decidim-calendar", github: "openpoke/decidim-module-calendar", branch: "release/0.27-stable"
 gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda"
 
 gem "bootsnap", "~> 1.7"
