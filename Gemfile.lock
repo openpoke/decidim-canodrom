@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 332688dbf34bdd70fd409c1a20b62c62e3e694cd
+  revision: 212d5a917065f5c1bfd584715a1b180adb723cf2
   branch: fix/canodrom-template
   specs:
     decidim-newsletter_agenda (1.1.0)
