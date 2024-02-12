@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.27.5"
+DECIDIM_VERSION = { github: "openpoke/decidim", branch: "0.27-backports" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -20,7 +20,7 @@ gem "decidim-navigation_maps", github: "platoniq/decidim-module-navigation_maps"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
 gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
-gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda"
+gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "fix/canodrom-template"
 
 gem "puma"
 gem "wicked_pdf"
