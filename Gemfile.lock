@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 31af0cbe4352888ea2092c9ea8b2d4d5ee813a62
+  revision: 2a34c57248150d7c7eae77bd1ba7c64f211d60b7
   specs:
     decidim-decidim_awesome (0.10.2)
       decidim-admin (>= 0.26.0, < 0.28)
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 212d5a917065f5c1bfd584715a1b180adb723cf2
+  revision: 3a78104ffc17a33202155ef59928b04dbb1d4b5a
   branch: fix/canodrom-template
   specs:
     decidim-newsletter_agenda (1.1.0)
@@ -316,7 +316,7 @@ GEM
     airbrussh (1.5.1)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
-    axe-core-api (4.8.1)
+    axe-core-api (4.8.2)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -412,7 +412,7 @@ GEM
     commonmarker (0.23.10)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    crack (0.4.6)
+    crack (1.0.0)
       bigdecimal
       rexml
     crass (1.0.6)
@@ -449,13 +449,13 @@ GEM
     devise_invitable (2.0.9)
       actionmailer (>= 5.0)
       devise (>= 4.6)
-    diff-lcs (1.5.0)
+    diff-lcs (1.5.1)
     diffy (3.4.2)
-    doc2text (0.4.6)
-      nokogiri (>= 1.13.2, < 1.15.0)
+    doc2text (0.4.7)
+      nokogiri (>= 1.13.2, < 1.17.0)
       rubyzip (~> 2.3.0)
     docile (1.4.0)
-    doorkeeper (5.6.8)
+    doorkeeper (5.6.9)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dumb_delegator (1.0.0)
@@ -573,7 +573,7 @@ GEM
       kramdown (~> 2.0)
     launchy (2.5.2)
       addressable (~> 2.8)
-    letter_opener (1.8.1)
+    letter_opener (1.9.0)
       launchy (>= 2.2, < 3)
     letter_opener_web (2.0.0)
       actionmailer (>= 5.2)
@@ -602,10 +602,10 @@ GEM
     method_source (1.0.0)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.1205)
+    mime-types-data (3.2024.0206)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    minitest (5.21.2)
+    minitest (5.22.2)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
@@ -617,7 +617,7 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.9.1)
+    net-imap (0.4.10)
       date
       net-protocol
     net-pop (0.1.2)
@@ -632,7 +632,7 @@ GEM
       net-protocol
     net-ssh (7.2.1)
     nio4r (2.7.0)
-    nokogiri (1.14.5-x86_64-linux)
+    nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -764,24 +764,24 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
-    rspec (3.12.0)
-      rspec-core (~> 3.12.0)
-      rspec-expectations (~> 3.12.0)
-      rspec-mocks (~> 3.12.0)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
     rspec-cells (0.3.9)
       cells (>= 4.0.0, < 6.0.0)
       rspec-rails (>= 3.0.0, < 6.2.0)
-    rspec-core (3.12.2)
-      rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.3)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
+      rspec-support (~> 3.13.0)
     rspec-html-matchers (0.9.4)
       nokogiri (~> 1)
       rspec (>= 3.0.0.a, < 4)
-    rspec-mocks (3.12.6)
+    rspec-mocks (3.13.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
+      rspec-support (~> 3.13.0)
     rspec-rails (4.1.2)
       actionpack (>= 4.2)
       activesupport (>= 4.2)
@@ -792,7 +792,7 @@ GEM
       rspec-support (~> 3.10)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
-    rspec-support (3.12.1)
+    rspec-support (3.13.0)
     rspec_junit_formatter (0.3.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.28.2)
@@ -913,7 +913,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.19.1)
+    webmock (3.20.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -937,7 +937,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   x86_64-linux
