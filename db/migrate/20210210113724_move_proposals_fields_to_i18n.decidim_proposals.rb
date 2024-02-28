@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_proposals (originally 20200708091228)
 
 class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
@@ -10,7 +11,7 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
 
     PaperTrail.request(enabled: false) do
       Decidim::Proposals::Proposal.find_in_batches do |batch|
-        p "Running batch!"
+        Rails.logger.debug "Running batch!"
 
         batch.each do |proposal|
           author = proposal.coauthorships.first.author

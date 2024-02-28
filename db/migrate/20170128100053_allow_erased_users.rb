@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AllowErasedUsers < ActiveRecord::Migration[5.0]
   def change
     ActiveRecord::Base.transaction do

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20181001124950)
 
 class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
@@ -68,8 +69,8 @@ class MoveUsersGroupsToUsersTable < ActiveRecord::Migration[5.2]
         nickname: User.nicknamize(clean_attributes["name"]),
         extended_data: extended_data
       )
-      pp old_user_group.inspect
-      pp new_attributes
+      Rails.logger.debug old_user_group.inspect
+      Rails.logger.debug new_attributes
       new_user_group = NewUserGroup.create!(new_attributes)
       new_ids[old_user_group.id] = new_user_group.id
     end

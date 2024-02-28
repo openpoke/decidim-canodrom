@@ -60,7 +60,7 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
         created_at: result.created_at,
         updated_at: result.updated_at,
         children_count: result.children_count,
-        legacy_id: result.id,
+        legacy_id: result.id
       )
 
       Categorization.where(
@@ -85,7 +85,7 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
         from_type: "Decidim::Results::Result"
       ).update_all("from_type = 'Decidim::Accountability::Result'")
     end
-    
+
     Feature.where(manifest_name: "results").update_all("manifest_name = 'accountability'")
 
     drop_table :decidim_results_results

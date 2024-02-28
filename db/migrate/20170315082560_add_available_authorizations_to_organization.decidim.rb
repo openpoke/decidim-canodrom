@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170313095436)
 class AddAvailableAuthorizationsToOrganization < ActiveRecord::Migration[5.0]
   def change
@@ -5,7 +7,7 @@ class AddAvailableAuthorizationsToOrganization < ActiveRecord::Migration[5.0]
 
     handlers = Decidim.authorization_handlers
     Decidim::Organization.find_each do |org|
-      org.update_attributes(available_authorizations: handlers)
+      org.update(available_authorizations: handlers)
     end
   end
 end
