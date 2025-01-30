@@ -13,7 +13,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "main"
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
 gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", branch: "upgrade-0.28"
