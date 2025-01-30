@@ -50,8 +50,5 @@
     "@decidim/stylelint-config": "^0.28.0",
     "postcss-scss": "^4.0.9",
     "sass-embedded": "~1.57.1"
-  },
-  "browserslist": [
-    "extends @decidim/browserslist-config"
-  ]
+  }
 }
