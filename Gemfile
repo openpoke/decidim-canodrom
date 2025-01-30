@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "0.28-stable" }.freeze
+DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -13,7 +13,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 # Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "main"
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 # gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
 gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", branch: "upgrade-0.28"
@@ -26,7 +26,7 @@ gem "wkhtmltopdf-binary"
 
 group :development, :test do
   gem "byebug", platform: :mri
-  gem "faker", "~> 2.14"
+  gem "faker", "~> 3.2"
   gem "rubocop-faker"
 
   gem "decidim-dev", DECIDIM_VERSION
