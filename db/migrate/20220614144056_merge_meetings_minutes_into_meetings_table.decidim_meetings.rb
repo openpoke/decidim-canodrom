@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_meetings (originally 20210506180226)
 
 class MergeMeetingsMinutesIntoMeetingsTable < ActiveRecord::Migration[6.0]
@@ -19,7 +20,7 @@ class MergeMeetingsMinutesIntoMeetingsTable < ActiveRecord::Migration[6.0]
     add_column :decidim_meetings_meetings, :minutes_visible, :boolean
 
     Minutes.find_each do |minutes|
-      next unless minutes.meeting.present?
+      next if minutes.meeting.blank?
 
       minutes.meeting.update!(
         minutes_description: minutes.description,

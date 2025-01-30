@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateTemplateTextsToSettings < ActiveRecord::Migration[5.1]
   class Feature < ApplicationRecord
     self.table_name = :decidim_features
