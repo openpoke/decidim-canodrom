@@ -5,6 +5,3 @@ AllCops:
   Exclude:
     - 'db/**/*.rb'
     - 'vendor/**/*'
-
-FactoryBot/CreateList:
-  Enabled: false
