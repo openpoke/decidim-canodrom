@@ -99,13 +99,13 @@ RSpec.configure do |config|
   config.order = :random
 
   config.before do
-    I18n.available_locales = [:ca, :es]
-    I18n.default_locale = :ca
-    Decidim.available_locales = [:ca, :es]
-    Decidim.default_locale = :ca
+    I18n.available_locales = [:ca, :es, :en]
+    I18n.default_locale = :en
+    Decidim.available_locales = [:ca, :es, :en]
+    Decidim.default_locale = :en
   end
 
   config.around do |example|
-    I18n.with_locale(:ca) { example.run }
+    I18n.with_locale(:en) { example.run }
   end
 end
