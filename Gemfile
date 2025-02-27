@@ -9,20 +9,16 @@ DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.28-stable" }.f
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-# gem "decidim-notify"
-# Change term_customizer dependency to ruby-gems' when term-customizer is compatible with DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "main"
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
-# gem "decidim-time_tracker", github: "Platoniq/decidim-module-time_tracker"
 
-gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", branch: "upgrade-0.28"
+gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
 gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "upgrade-28"
 
 gem "bootsnap", "~> 1.7"
+gem "health_check"
 gem "puma"
-gem "wicked_pdf"
-gem "wkhtmltopdf-binary"
 
 group :development, :test do
   gem "byebug", platform: :mri
@@ -38,18 +34,9 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen"
   gem "web-console"
-
-  gem "capistrano", "~> 3.17", require: false
-  gem "capistrano-bundler", require: false
-  gem "capistrano-passenger", require: false
-  gem "capistrano-rails", require: false
-  gem "capistrano-rails-console", require: false
-  gem "capistrano-rbenv", require: false
-  gem "capistrano-sidekiq", require: false
 end
 
 group :production do
-  gem "figaro", "~> 1.2"
-  gem "sidekiq", "<7"
+  gem "sidekiq"
   gem "sidekiq-cron"
 end
