@@ -17,6 +17,7 @@ gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_aweso
 # gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda"
 
 gem "bootsnap", "~> 1.7"
+gem "deface", ">= 1.9"
 gem "health_check"
 gem "puma"
 
