@@ -34,8 +34,9 @@ RUN gem install bundler:$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1 | xa
     find /usr/local/bundle/ -name "*.o" -delete && \
     find /usr/local/bundle/ -name ".git" -exec rm -rf {} + && \
     find /usr/local/bundle/ -name ".github" -exec rm -rf {} + && \
-    # Remove additional unneded decidim files
-    find /usr/local/bundle/ -name "spec" -exec rm -rf {} +
+    # Remove additional unneeded decidim files
+    find /usr/local/bundle/ -name "spec" -exec rm -rf {} + && \
+    find /usr/local/bundle/ -wholename "*/decidim-dev/lib/decidim/dev/assets/*" -exec rm -rf {} +
 
 RUN npm ci
 
@@ -74,6 +75,19 @@ RUN mv config/credentials.bak config/credentials 2>/dev/null || true
 
 RUN rm -rf node_modules tmp/cache vendor/bundle test spec app/packs .git
 
+ARG GIT_BRANCH=upgrade-029
+ENV GIT_BRANCH=${GIT_BRANCH}
+ARG GIT_REPO=https://github.com/openpoke/decidim-canodrom
+ENV GIT_REPO=${GIT_REPO}
+RUN git init . && \
+    git remote add origin $GIT_REPO && \
+    git fetch origin $GIT_BRANCH --depth 1 && \
+    echo "REVISION=$(git describe --tags --always origin/$GIT_BRANCH)" > /app/.env && \
+    echo "AUTHOR=$(git log -1 --pretty=%an origin/$GIT_BRANCH)" >> /app/.env && \
+    echo "EMAIL=$(git log -1 --pretty=%ae origin/$GIT_BRANCH)" >> /app/.env && \
+    echo "DESCRIPTION=$(git log -1 --pretty=%s origin/$GIT_BRANCH)" >> /app/.env && \
+    echo "DATE=$(git log -1 --pretty=%cd origin/$GIT_BRANCH)" >> /app/.env && \
+    rm -rf /app/.git
 # This image is for production env only
 FROM ruby:3.2.6-slim AS final
 
@@ -94,9 +108,6 @@ ENV APP_REVISION=${CAPROVER_GIT_COMMIT_SHA}
 ENV RAILS_LOG_TO_STDOUT true
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_ENV production
-
-ARG RUN_RAILS
-ARG RUN_SIDEKIQ
 
 # Add user
 RUN addgroup --system --gid 1000 app && \

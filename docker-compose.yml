@@ -49,7 +49,7 @@ services:
       - MAPS_API_KEY
       - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
       - RACK_ATTACK_SECRET
-      - CENSUS_URL
+      - RORVSWILD_API_KEY
       - DECIDIM_HOST=${DECIDIM_HOST:-comunitat.canodrom.barcelona}
     labels:
       - "traefik.enable=true"
@@ -90,7 +90,7 @@ services:
       - MAPS_API_KEY
       - MAPS_PROVIDER=${MAPS_PROVIDER:-here}
       - RACK_ATTACK_SECRET
-      - CENSUS_URL
+      - RORVSWILD_API_KEY
     depends_on:
       - db
       - redis
