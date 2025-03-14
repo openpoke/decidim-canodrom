@@ -158,6 +158,8 @@ GIT
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -202,6 +204,16 @@ GIT
       devise_invitable (~> 2.0, >= 2.0.9)
     decidim-verifications (0.29.2)
       decidim-core (= 0.29.2)
+
+GIT
+  remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
+  revision: eef42a62d6696e26d47ac1949055755ef1a32c3d
+  branch: upgrade-029
+  specs:
+    decidim-newsletter_agenda (2.0)
+      date_range_formatter
+      decidim-admin (>= 0.29, < 0.30)
+      decidim-core (>= 0.29, < 0.30)
 
 GEM
   remote: https://rubygems.org/
@@ -339,6 +351,8 @@ GEM
     csv (3.3.2)
     dartsass (1.49.8)
     date (3.4.1)
+    date_range_formatter (0.1.2)
+      activesupport (>= 3.2.0)
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
@@ -813,6 +827,10 @@ GEM
       hashie
       listen (>= 2.7, < 4.0)
       version_gem (~> 1.1, >= 1.1.1)
+    spring (4.3.0)
+    spring-watcher-listen (2.1.0)
+      listen (>= 2.7, < 4.0)
+      spring (>= 4)
     stringio (3.1.5)
     temple (0.10.3)
     terminal-table (4.0.0)
@@ -886,6 +904,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev!
   decidim-initiatives!
+  decidim-newsletter_agenda!
   decidim-term_customizer!
   deface (>= 1.9)
   faker (~> 3.2)
