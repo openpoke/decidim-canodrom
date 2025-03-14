@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 860cd92588ff2328854401014e772998d0839619
+  revision: 1be5d913c2cc67c88c8d11446a4bd3da171436c2
   branch: release/0.29-stable
   specs:
     decidim (0.29.2)
@@ -207,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: eef42a62d6696e26d47ac1949055755ef1a32c3d
+  revision: 31b81bea7a8fa8f7a37bd37788079f5ac3b14676
   branch: upgrade-029
   specs:
     decidim-newsletter_agenda (2.0)
@@ -449,7 +449,7 @@ GEM
     geom2d (0.4.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    graphql (2.2.16)
+    graphql (2.2.17)
       base64
     graphql-docs (4.0.0)
       commonmarker (~> 0.23, >= 0.23.6)
@@ -544,7 +544,7 @@ GEM
     mime-types-data (3.2025.0304)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.25.4)
+    minitest (5.25.5)
     msgpack (1.8.0)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
@@ -826,7 +826,6 @@ GEM
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
-      listen (>= 2.7, < 4.0)
       version_gem (~> 1.1, >= 1.1.1)
     spring (4.3.0)
     spring-watcher-listen (2.1.0)
