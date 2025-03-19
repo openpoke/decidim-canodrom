@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: 1be5d913c2cc67c88c8d11446a4bd3da171436c2
+  revision: f58e736411fcb066cd805af40e6d72d55c64f383
   branch: release/0.29-stable
   specs:
     decidim (0.29.2)
@@ -158,6 +158,8 @@ GIT
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -205,7 +207,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 31b81bea7a8fa8f7a37bd37788079f5ac3b14676
+  revision: fad3f8054df2d532b6ad8fbcd55ca8dfc6747d0b
   branch: upgrade-029
   specs:
     decidim-newsletter_agenda (2.0)
@@ -558,21 +560,21 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.4-aarch64-linux-gnu)
+    nokogiri (1.18.5-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.4-aarch64-linux-musl)
+    nokogiri (1.18.5-aarch64-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.4-arm-linux-gnu)
+    nokogiri (1.18.5-arm-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.4-arm-linux-musl)
+    nokogiri (1.18.5-arm-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.4-arm64-darwin)
+    nokogiri (1.18.5-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.4-x86_64-darwin)
+    nokogiri (1.18.5-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.4-x86_64-linux-gnu)
+    nokogiri (1.18.5-x86_64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.4-x86_64-linux-musl)
+    nokogiri (1.18.5-x86_64-linux-musl)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -755,7 +757,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.38.1)
+    rubocop-ast (1.40.0)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -824,8 +826,11 @@ GEM
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
-      listen (>= 2.7, < 4.0)
       version_gem (~> 1.1, >= 1.1.1)
+    spring (4.3.0)
+    spring-watcher-listen (2.1.0)
+      listen (>= 2.7, < 4.0)
+      spring (>= 4)
     stringio (3.1.5)
     temple (0.10.3)
     terminal-table (4.0.0)
