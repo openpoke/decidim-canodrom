@@ -202,6 +202,9 @@ GIT
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
+    decidim-templates (0.29.2)
+      decidim-core (= 0.29.2)
+      decidim-forms (= 0.29.2)
     decidim-verifications (0.29.2)
       decidim-core (= 0.29.2)
 
@@ -905,6 +908,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-initiatives!
   decidim-newsletter_agenda!
+  decidim-templates!
   decidim-term_customizer!
   deface (>= 1.9)
   faker (~> 3.2)
