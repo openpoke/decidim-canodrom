@@ -21,7 +21,9 @@ gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"
 gem "health_check"
 gem "puma"
-gem "rorvswild"
+gem "rails_semantic_logger"
+gem "sentry-rails"
+gem "sentry-ruby"
 
 group :development, :test do
   gem "byebug", platform: :mri

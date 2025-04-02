@@ -74,7 +74,7 @@ RUN mv config/credentials.bak config/credentials 2>/dev/null || true
 
 RUN rm -rf node_modules tmp/cache vendor/bundle test spec app/packs .git
 
-ARG GIT_BRANCH=upgrade-029
+ARG GIT_BRANCH=main
 ENV GIT_BRANCH=${GIT_BRANCH}
 ARG GIT_REPO=https://github.com/openpoke/decidim-canodrom
 ENV GIT_REPO=${GIT_REPO}
