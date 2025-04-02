@@ -12,7 +12,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-term_customizer", github: "CodiTramuntana/decidim-module-term_customizer", branch: "upgrade/decidim_0.29"
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "fix-cache-menu"
 
 # gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
 gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "main"
@@ -21,7 +21,9 @@ gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"
 gem "health_check"
 gem "puma"
-gem "rorvswild"
+gem "rails_semantic_logger"
+gem "sentry-rails"
+gem "sentry-ruby"
 
 group :development, :test do
   gem "byebug", platform: :mri
