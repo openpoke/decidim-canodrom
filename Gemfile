@@ -12,7 +12,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-term_customizer", github: "CodiTramuntana/decidim-module-term_customizer", branch: "upgrade/decidim_0.29"
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "fix-cache-menu"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 
 # gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
 gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "main"

@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 9d806c8bbc5589f6a06ae15c489937f3d33823c7
-  branch: fix-cache-menu
+  revision: ccb89b5eda6dba04658a70f34a38a97f1ecddf02
+  branch: main
   specs:
     decidim-decidim_awesome (0.12.1)
       decidim-admin (>= 0.29.1, < 0.30)
