@@ -53,6 +53,7 @@ decidim_dummy_app
 /public/decidim-packs
 /public/decidim-packs-test
 /node_modules
+/packages/*/node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
