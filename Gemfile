@@ -15,7 +15,7 @@ gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer"
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 
 # gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
-gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "main"
+gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "fix/footer_images"
 
 gem "bootsnap", "~> 1.7"
 gem "deface", ">= 1.9"

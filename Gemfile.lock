@@ -202,10 +202,10 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 513b37b3b09d4bf5962d5bd5ec6ccd232f3e2c1c
-  branch: main
+  revision: 023783840287faf705d4ddbcb6277217ffb53e25
+  branch: fix/footer_images
   specs:
-    decidim-newsletter_agenda (2.0)
+    decidim-newsletter_agenda (2.1)
       date_range_formatter
       decidim-admin (>= 0.29, < 0.30)
       decidim-core (>= 0.29, < 0.30)
@@ -415,7 +415,7 @@ GEM
       railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
-    faraday (2.13.1)
+    faraday (2.13.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -858,7 +858,7 @@ GEM
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.3.2)
-    tilt (2.6.0)
+    tilt (2.6.1)
     timeout (0.4.3)
     trailblazer-option (0.1.2)
     tzinfo (2.0.6)
