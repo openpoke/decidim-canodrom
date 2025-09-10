@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: b8f89e34860e00fe57a705d010ac5877ac0addea
-  branch: main
+  revision: f1eb032d3dbe4d2684a1b39b2b01fde1b10eb6bf
+  branch: release/0.29-stable
   specs:
     decidim-decidim_awesome (0.12.4)
       active_hashcash (~> 0.4.0)
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: f3bf19e23167c4fb2710c093110d324d492594e8
+  revision: f09912abf8dc2ce0ca465acff26f8e35f5e83235
   branch: release/0.29-stable
   specs:
     decidim (0.29.4)
@@ -202,7 +202,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-newsletter_agenda.git
-  revision: 2439638fdc6fc10268e08102f42daa3aa7a2b2eb
+  revision: de983bc9938feaee6c9676944e543d7ba3f9ab26
   branch: main
   specs:
     decidim-newsletter_agenda (2.1)
@@ -212,7 +212,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer.git
-  revision: 1f61d02b13fada32b9b4e0a4adb716e6ed30bcd9
+  revision: 12d3c4f09e0a136e3d5533966c0d983edbb02564
   branch: main
   specs:
     decidim-term_customizer (0.29.1)
@@ -308,7 +308,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.2.2)
+    bigdecimal (3.2.3)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
@@ -410,7 +410,7 @@ GEM
       html-pipeline (~> 2.9)
     factory_bot (6.5.5)
       activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.0)
+    factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     faker (3.5.2)
@@ -466,7 +466,7 @@ GEM
       gemoji (~> 3.0)
       graphql (~> 2.0)
       html-pipeline (~> 2.14, >= 2.14.3)
-    hashdiff (1.2.0)
+    hashdiff (1.2.1)
     hashie (5.0.0)
     health_check (3.1.0)
       railties (>= 5.0)
@@ -550,7 +550,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0902)
+    mime-types-data (3.2025.0909)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
@@ -591,7 +591,7 @@ GEM
       version_gem (~> 1.1)
     oauth-tty (1.0.5)
       version_gem (~> 1.1, >= 1.1.1)
-    oauth2 (2.0.14)
+    oauth2 (2.0.15)
       faraday (>= 0.17.3, < 4.0)
       jwt (>= 1.0, < 4.0)
       logger (~> 1.2)
@@ -718,7 +718,7 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.6.1)
     redis (4.8.1)
-    redis-client (0.25.2)
+    redis-client (0.25.3)
       connection_pool
     regexp_parser (2.11.2)
     reline (0.6.2)
@@ -728,7 +728,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.4.2)
+    rexml (3.4.4)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -815,10 +815,10 @@ GEM
     semantic_logger (4.17.0)
       concurrent-ruby (~> 1.0)
     semantic_range (3.1.0)
-    sentry-rails (5.26.0)
+    sentry-rails (5.27.0)
       railties (>= 5.0)
-      sentry-ruby (~> 5.26.0)
-    sentry-ruby (5.26.0)
+      sentry-ruby (~> 5.27.0)
+    sentry-ruby (5.27.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shakapacker (7.1.0)
