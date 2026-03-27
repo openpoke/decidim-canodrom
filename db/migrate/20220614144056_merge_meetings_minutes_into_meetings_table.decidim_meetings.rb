@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_meetings (originally 20210506180226)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class MergeMeetingsMinutesIntoMeetingsTable < ActiveRecord::Migration[6.0]
   class Minutes < ApplicationRecord
     self.table_name = "decidim_meetings_minutes"
@@ -20,8 +20,6 @@ class MergeMeetingsMinutesIntoMeetingsTable < ActiveRecord::Migration[6.0]
     add_column :decidim_meetings_meetings, :minutes_visible, :boolean
 
     Minutes.find_each do |minutes|
-      next if minutes.meeting.blank?
-
       minutes.meeting.update!(
         minutes_description: minutes.description,
         video_url: minutes.video_url,

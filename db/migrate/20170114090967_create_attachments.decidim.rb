@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20161116115156)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class CreateAttachments < ActiveRecord::Migration[5.0]
   def change
-    create_table :attachments do |t|
-    end
     create_table :decidim_participatory_process_attachments do |t|
       t.jsonb :title, null: false
       t.jsonb :description, null: false

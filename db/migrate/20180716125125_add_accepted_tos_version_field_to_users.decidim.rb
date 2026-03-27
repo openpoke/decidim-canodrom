@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20180508111710)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class AddAcceptedTosVersionFieldToUsers < ActiveRecord::Migration[5.1]
   class Organization < ApplicationRecord
     self.table_name = :decidim_organizations
