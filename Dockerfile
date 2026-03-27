@@ -1,4 +1,4 @@
-FROM ruby:3.2.6 AS builder
+FROM ruby:3.3.10 AS builder
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
     mkdir -p /etc/apt/keyrings && \
@@ -88,14 +88,13 @@ RUN git init . && \
     echo "DATE=$(git log -1 --pretty=%cd origin/$GIT_BRANCH)" >> /app/.env && \
     rm -rf /app/.git
 # This image is for production env only
-FROM ruby:3.2.6-slim AS final
+FROM ruby:3.3.10-slim AS final
 
 RUN apt-get update && \
     apt-get install -y postgresql-client \
     imagemagick \
     curl \
     p7zip \
-    wkhtmltopdf \
     supervisor && \
     apt-get clean
 
