@@ -58,3 +58,4 @@ decidim_dummy_app
 yarn-debug.log*
 .yarn-integrity
 tailwind.config.js
+/app/views/static
