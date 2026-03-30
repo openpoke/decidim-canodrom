@@ -11,7 +11,7 @@ module ApplicationMailerDelivery
     private
 
     def set_delivery_options
-      return unless Decidim::Env.new("BROADCAST_USERNAME").present?
+      return if Decidim::Env.new("BROADCAST_USERNAME").blank?
       return unless instance_of?(Decidim::NewsletterMailer)
 
       mail.delivery_method.settings.merge!(
