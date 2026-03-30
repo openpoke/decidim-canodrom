@@ -2,10 +2,8 @@ FROM ruby:3.3.10 AS builder
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
     mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -y nodejs yarn \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get update && apt-get install -y nodejs \
     build-essential \
     postgresql-client \
     p7zip \
@@ -18,12 +16,17 @@ RUN bundle config --global frozen 1
 WORKDIR /app
 
 # Copy package dependencies files only to ensure maximum cache hit
+COPY ./package-lock.json /app/package-lock.json
+COPY ./package.json /app/package.json
+COPY ./packages /app/packages
 COPY ./Gemfile /app/Gemfile
 COPY ./Gemfile.lock /app/Gemfile.lock
 
 RUN gem install bundler:$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1 | xargs) && \
-bundle config --local without 'development test' && \
+bundle config set --deployment 'true' && \
+bundle config set --local without 'development test' && \
 bundle install -j4 --retry 3 && \
+npm install yarn -g && \
 # Remove unneeded gems
 bundle clean --force && \
 # Remove unneeded files from installed gems (cache, *.o, *.c)
@@ -36,9 +39,6 @@ find /usr/local/bundle/ -name ".github" -exec rm -rf {} + && \
 find /usr/local/bundle/ -name "spec" -exec rm -rf {} + && \
 find /usr/local/bundle/ -wholename "*/decidim-dev/lib/decidim/dev/assets/*" -exec rm -rf {} +
 
-COPY ./package-lock.json /app/package-lock.json
-COPY ./package.json /app/package.json
-COPY ./packages /app/packages
 RUN npm ci
 
 # copy the rest of files
