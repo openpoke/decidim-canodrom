@@ -11,13 +11,13 @@ module ApplicationMailerDelivery
     private
 
     def set_delivery_options
-      return if Rails.application.secrets.broadcast_username.blank?
+      return unless Decidim::Env.new("BROADCAST_USERNAME").present?
       return unless instance_of?(Decidim::NewsletterMailer)
 
       mail.delivery_method.settings.merge!(
-        address: Rails.application.secrets.broadcast_address,
-        user_name: Rails.application.secrets.broadcast_username,
-        password: Rails.application.secrets.broadcast_password
+        address: Decidim::Env.new("BROADCAST_ADDRESS").to_s,
+        user_name: Decidim::Env.new("BROADCAST_USERNAME").to_s,
+        password: Decidim::Env.new("BROADCAST_PASSWORD").to_s
       )
     end
   end
