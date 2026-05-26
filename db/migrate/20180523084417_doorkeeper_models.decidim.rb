@@ -1,6 +1,7 @@
-# This migration comes from decidim (originally 20180308113207)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20180308113207)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class DoorkeeperModels < ActiveRecord::Migration[5.1]
   def change
     create_table :oauth_applications do |t|

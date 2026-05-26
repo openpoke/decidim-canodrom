@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_meetings (originally 20210512100333)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class DropDecidimMeetingsMinutesTable < ActiveRecord::Migration[6.0]
   class Minutes < ApplicationRecord
     self.table_name = "decidim_meetings_minutes"
@@ -23,6 +23,7 @@ class DropDecidimMeetingsMinutesTable < ActiveRecord::Migration[6.0]
     ActionLog.where(resource_type: "Decidim::Meetings::Minutes").each do |action_log|
       minutes = Minutes.find_by(id: action_log.resource_id)
       version = Version.find_by(id: action_log.version_id)
+      next unless minutes && version
 
       version_updates = {
         item_type: "Decidim::Meetings::Meeting",

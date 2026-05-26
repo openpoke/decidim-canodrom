@@ -1,12 +1,16 @@
-# This migration comes from decidim (originally 20180226140756)
 # frozen_string_literal: true
 
+# This migration comes from decidim (originally 20180226140756)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class AddVersionToActionLogs < ActiveRecord::Migration[5.1]
-  def up
-    add_column :decidim_action_logs, :version_id, :integer
-    add_index :decidim_action_logs, :version_id
+  class ActionLog < ApplicationRecord
+    self.table_name = :decidim_action_logs
+  end
 
-    Decidim::ActionLog.find_each do |action_log|
+  def up
+    add_column :decidim_action_logs, :version_id, :integer, index: true
+
+    ActionLog.find_each do |action_log|
       version_id = action_log.extra.dig("version", "id")
       next unless version_id
 

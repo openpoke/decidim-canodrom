@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_initiatives (originally 20191107134847)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-27 12:32:26 UTC
 class AddScopesToInitiativesVotes < ActiveRecord::Migration[5.2]
   class InitiativeVote < ApplicationRecord
     self.table_name = :decidim_initiatives_votes

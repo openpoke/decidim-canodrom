@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.2.6
+  RUBY_VERSION: 3.3.10
   NODE_VERSION: 18.17.1
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:17-alpine
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -25,7 +25,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
       redis:
-        image: redis:3.2-alpine
+        image: redis:8-alpine
         ports: ["6379:6379"]
     env:
       DATABASE_USERNAME: postgres
@@ -38,21 +38,18 @@ jobs:
           fetch-depth: 1
 
       - run: |
-          sudo apt-get update; sudo apt-get -f install wkhtmltopdf imagemagick
+          sudo apt-get update; sudo apt-get -f install imagemagick
           
-      - uses: nanasess/setup-chromedriver@v2
-        with:
-          chromedriver-version: 119.0.6045.105
-
       - name: List Chrome
         run: apt list --installed | grep chrome
     
       - name: Remove Chrome
         run: sudo apt remove google-chrome-stable
     
-      - uses: browser-actions/setup-chrome@v1
+      - uses: browser-actions/setup-chrome@v2
         with:
-          chrome-version: 119.0.6045.105
+          chrome-version: 147.0.7727.24
+          install-chromedriver: true
 
       - uses: ruby/setup-ruby@v1
         with:
