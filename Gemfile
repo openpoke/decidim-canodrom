@@ -4,18 +4,18 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.31-stable" }.freeze
+DECIDIM_VERSION = { github: "openpoke/decidim", branch: "0.31-backports" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
-gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer", branch: "release/0.31-stable"
+gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer", branch: "main"
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "release/0.31-stable"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 
 # gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
-gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "upgrade/0.31"
+gem "decidim-newsletter_agenda", github: "openpoke/decidim-module-newsletter_agenda", branch: "main"
 
 gem "bootsnap"
 gem "deface"
