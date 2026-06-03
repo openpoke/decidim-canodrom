@@ -1,0 +1,37 @@
+default:
+  image: docker:24.0.5-cli
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+
+stages:
+  - build
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+  REDIS_URL: redis://127.0.0.1:6379
+  IMAGE_NAME: $CI_REGISTRY_IMAGE
+
+build:
+  stage: build
+  script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        TAG="latest"
+      else
+        TAG="$CI_COMMIT_REF_SLUG"
+      fi
+
+    - echo "Building image $IMAGE_NAME:$TAG"
+    - docker build --pull -t $IMAGE_NAME:$TAG .
+
+    - docker push $IMAGE_NAME:$TAG
+
+    - docker tag $IMAGE_NAME:$TAG $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+
