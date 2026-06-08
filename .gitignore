@@ -44,6 +44,7 @@ config/application.yml
 config/deploy/*
 config/deploy
 config/deploy.rb
+*.sql
 
 decidim_dummy_app
 .vscode
