@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer.git
-  revision: 493dafb08208e7256e755a579cf724dda627d31d
+  revision: 41b6104f615fd7f609b406f62c6893f52a9f5804
   branch: main
   specs:
     decidim-term_customizer (0.31)
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 8a0f70e3bf6637a69c45310fa1b63928a98964b8
+  revision: bf75dd39e49995cb8b0e1924ae7856920292621c
   branch: 0.31-backports
   specs:
     decidim (0.31.5)
@@ -625,12 +625,12 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.27.0)
-    msgpack (1.8.1)
+    msgpack (1.8.3)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -944,10 +944,10 @@ GEM
     semantic_logger (4.18.0)
       concurrent-ruby (~> 1.0)
     semantic_range (3.1.1)
-    sentry-rails (6.6.1)
+    sentry-rails (6.6.2)
       railties (>= 5.2.0)
-      sentry-ruby (~> 6.6.1)
-    sentry-ruby (6.6.1)
+      sentry-ruby (~> 6.6.2)
+    sentry-ruby (6.6.2)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
