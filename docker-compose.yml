@@ -19,7 +19,7 @@ services:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
   app:
-    build: .
+    image: ghcr.io/openpoke/decidim-canodrom:main
     volumes:
       - /home/dockerexec/storage:/app/storage
     restart: ${RESTART_POLICY:-always}
